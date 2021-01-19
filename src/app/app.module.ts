@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import localEs from '@angular/common/locales/es-CO';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -19,7 +20,6 @@ import { NavComponent } from './core-components/nav/nav.component';
 import { DetailsProductComponent } from './pages/details-product/details-product.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ImagePathPipe } from './shared/pipes/path-assets.pipe';
-
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, `${environment.assets}data/`, '.json');
 }
@@ -35,7 +35,6 @@ export function createTranslateLoader(http: HttpClient) {
     ImagePathPipe
   ],
   imports: [
- 
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

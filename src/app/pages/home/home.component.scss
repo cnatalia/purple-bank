@@ -1,0 +1,37 @@
+@import 'variables';
+
+.home {
+  .toggle {
+   margin-bottom: 10px;
+    &::after {
+      content: "\e90d";
+      font-family: 'icon';
+      font-size: 30px;
+      color: $secondary-color;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  }
+
+  h1 {
+    font-size: 16px;
+    font-family: 'interBold'
+  }
+
+  .financialProducts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76px;
+    border: 1px solid $lines-color;
+    border-radius: 5px;
+    padding: 0 35px;
+    -webkit-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+    -moz-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+    box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+  }
+}
