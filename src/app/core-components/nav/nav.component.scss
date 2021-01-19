@@ -1,0 +1,16 @@
+nav {
+  height: 717px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+  -webkit-box-shadow: 6px 3px 5px 0px rgba(50, 50, 50, 0.2);
+  -moz-box-shadow: 6px 3px 5px 0px rgba(50, 50, 50, 0.2);
+  box-shadow: 6px 3px 5px 0px rgba(50, 50, 50, 0.2);
+
+  h2 {
+    font-size: 15px;
+    font-family: 'interSemiBold';
+  }
+
+}

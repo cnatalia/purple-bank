@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'path-enviroment';
+@import 'variables';
+
+@font-face {
+  font-family: inter;
+  src: url('#{$path}fonts/inter/Inter-Medium.eot');
+  src: url('#{$path}fonts/inter/Inter-Medium.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/inter/Inter-Medium.woff') format("woff"),
+  url('#{$path}fonts/inter/Inter-Medium.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: interRegular;
+  src: url('#{$path}fonts/inter/Inter-Regular.eot');
+  src: url('#{$path}fonts/inter/Inter-Regular.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/inter/Inter-Regular.woff') format("woff"),
+  url('#{$path}fonts/inter/Inter-Regular.ttf') format("truetype");
+
+}
+
+@font-face {
+  font-family: interBold;
+  src: url('#{$path}fonts/inter/Inter-Bold.eot');
+  src: url('#{$path}fonts/inter/Inter-Bold.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/inter/Inter-Bold.woff') format("woff"),
+  url('#{$path}fonts/inter/Inter-Bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: interSemiBold;
+  src: url('#{$path}fonts/inter/Inter-SemiBold.eot');
+  src: url('#{$path}fonts/inter/Inter-SemiBold.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/inter/Inter-SemiBold.woff') format("woff"),
+  url('#{$path}fonts/inter/Inter-SemiBold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: icon;
+  src: url('#{$path}fonts/icon/icon.eot');
+  src: url('#{$path}fonts/icon/icon.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/icon/icon.woff') format("woff"),
+  url('#{$path}fonts/icon/icon.ttf') format("truetype");
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-family: 'interRegular';
+  font-size: 15px;
+}
+
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.container-purple-bank {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 30px 10px;
+  box-sizing: border-box;
+}

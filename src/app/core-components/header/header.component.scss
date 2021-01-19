@@ -1,0 +1,63 @@
+@import 'variables';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .welcome {
+    font-family: 'interSemiBold';
+  }
+
+  .optionsUser {
+    display: flex;
+
+    li {
+      font-size: 13px;
+      cursor: pointer;
+
+      &::after {
+        font-size: 28px;
+        font-family: 'icon';
+        width: 28px;
+        height: 28px;
+        color: $secondary-color;
+        display: inline-block;
+        margin-left: 15px;
+        vertical-align: middle;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        &::before {
+          content: "";
+          width: 1px;
+          height: 22px;
+          display: inline-block;
+          background-color: $secondary-color;
+          vertical-align: middle;
+          margin-left: 15px;
+          margin-right: 18px;
+        }
+      }
+    }
+
+    .profile {
+      &::after {
+        content: "\e908";
+      }
+    }
+
+    .noti {
+      &::after {
+        content: "\e903";
+      }
+    }
+
+    .logout {
+      &::after {
+        content: "\e900";
+      }
+    }
+  }
+}
