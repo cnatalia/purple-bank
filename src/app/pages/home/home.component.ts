@@ -1,5 +1,6 @@
 /* tslint:disable */
 import { Component, OnInit } from '@angular/core';
+import { FinancialDataService } from '../../services/financial-data/financial-data.service';
 
 
 @Component({
@@ -9,14 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  public financialData$;
 
- 
-  constructor() {
+  constructor(private serviFinancialData: FinancialDataService) {
 
   }
 
   ngOnInit(): void {
+    this.serviFinancialData.getFinancialData().subscribe(data => {
+      console.log(data),
+      this.financialData$ = data
+    })
+
+
   }
+
 
 
 

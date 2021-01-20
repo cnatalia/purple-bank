@@ -16,12 +16,12 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { CardComponent } from './components/card/card.component';
 import { HeaderComponent } from './core-components/header/header.component';
 import { NavComponent } from './core-components/nav/nav.component';
 import { DetailsProductComponent } from './pages/details-product/details-product.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ImagePathPipe } from './shared/pipes/path-assets.pipe';
+import { CardComponent } from './pages/home/card/card.component';
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, `${environment.assets}data/`, '.json');
 }
