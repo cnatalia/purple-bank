@@ -1,0 +1,63 @@
+@import 'variables';
+
+.container-card {
+  padding: 19px 19px 0 19px;
+  width: 217px;
+  height: 281px;
+  -webkit-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+  -moz-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+  box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+  border-radius: 5px;
+  border: 1px solid $lines-color;
+
+  .headerCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .verDetalle {
+    font-size: 13px;
+    color: $link;
+
+    &::after {
+      content: "\e902";
+      font-size: 20px;
+      font-family: 'icon';
+      display: inline-block;
+      vertical-align: sub;
+    }
+  }
+
+  .cifres {
+    margin-top: 10px;
+
+    span {
+      display: block;
+    }
+
+    .type {
+     
+      line-height: 24px;
+      margin-bottom: 5px;
+    }
+
+    .number {
+      margin-bottom: 17px;
+    }
+
+    .type,
+    .saldoValue {
+      font-size: 18px;
+      font-family: 'interBold'
+    }
+
+    .number,
+    .saldoTitle {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+
+  }
+}
