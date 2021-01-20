@@ -2,7 +2,8 @@
 
 .home {
   .toggle {
-   margin-bottom: 10px;
+    margin-bottom: 10px;
+
     &::after {
       content: "\e90d";
       font-family: 'icon';
@@ -11,7 +12,7 @@
       display: inline-block;
       width: 30px;
       height: 30px;
-      vertical-align: middle;
+      vertical-align: text-bottom;
       margin-left: 8px;
       cursor: pointer;
     }
@@ -34,4 +35,23 @@
     -moz-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
     box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
   }
+
+  .carousel {
+   max-width: 285px;
+   width: 100%;
+   .productName{
+    font-size: 12px;
+    line-height: 15px;
+   }
+   .value{
+    font-size: 18px;
+    font-family: 'interBold'
+   }
+  
+  }
+
+  span {
+    display: inline-block;
+  }
+
 }

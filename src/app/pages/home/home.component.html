@@ -3,6 +3,24 @@
   <div class="financialProducts">
     <h1>{{ 'home.title' | translate }}</h1>
     <div class="carrousel">
+      <ngb-carousel interval="90000">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <span class="productName">{{ 'home.current_account' | translate }}</span>
+            <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'} }}</span>
+            <!-- <img src="{{images[0]}}" alt="Angular Carousel 1"> -->
+          </div>
+
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <span class="productName">{{ 'home.savings_product' | translate }}</span>
+            <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'} }}</span>
+            <!-- <img src="{{images[1]}}" alt="Angular Carousel 2"> -->
+          </div>
+
+        </ng-template>
+      </ngb-carousel>
 
     </div>
   </div>

@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
 @import 'path-enviroment';
 @import 'variables';
 
@@ -63,10 +64,100 @@ ol {
   list-style-type: none;
 }
 
+.carousel.slide{
+
+  &:focus{
+    outline: transparent
+  }
+}
+.carousel-inner {
+  height: 75px;
+}
+
+.carousel-item{
+  top: 15px !important;
+}
+
+
 .container-purple-bank {
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
   padding: 30px 10px;
   box-sizing: border-box;
+}
+
+.carousel-control-next-icon {
+  background-image: none !important;
+  width: initial !important;
+  height: initial !important;
+
+  &::before {
+    content: "\e902";
+    font-size: 30px;
+    font-family: "icon";
+    display: inline-block;
+    line-height: 23px;
+    color: $secondary-color;
+  }
+
+}
+
+.carousel-control-prev-icon {
+  background-image: none !important;
+  width: initial !important;
+  height: initial !important;
+
+  &::before {
+    content: "\e901";
+    font-size: 30px;
+    font-family: "icon";
+    display: inline-block;
+    line-height: 23px;
+    color: $secondary-color;
+  }
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  width: 5% !important;
+  top: -7px !important;
+}
+
+.carousel-indicators li {
+  border-radius: 50%;
+  width: 5px !important;
+  height: 5px !important;
+}
+
+.picsum-img-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-indicators {
+  margin-bottom: 10px !important;
+}
+
+ .carousel-indicators li {
+  border: 1.5px solid $secondary-color !important;
+
+}
+.carousel-indicators .active{
+background-color:$secondary-color !important;
+
+}
+
+.carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
+
+  &::before {
+    color: #000 !important;
+  }
+
 }
