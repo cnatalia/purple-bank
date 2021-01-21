@@ -6,7 +6,7 @@ import { pipe, Observable, of } from 'rxjs';
 import { FinancialDataResponse } from '../../shared/models/financial-data-response';
 import { tap, map, reduce, distinct, filter } from 'rxjs/operators';
 import { ProductTypes } from '../../shared/enums/product-types';
-
+import * as Moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -41,8 +41,8 @@ export class HomeComponent implements OnInit {
             id: response.product.id,
             issuer: response.product.issuer,
             status: response.status ? response.status : null,
-            issue_date: response.issue_date,
-            due_date: response.due_date,
+            issue_date: Moment(response.issue_date).locale('es').format('L'),
+            due_date: Moment(response.due_date).locale('es').format('L'),
             summary: response.summary
           }
         })

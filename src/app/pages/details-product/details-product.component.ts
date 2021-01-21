@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FinancialDataService } from '../../services/financial-data/financial-data.service';
 import { ProductTypes } from '../../shared/enums/product-types';
+import * as Moment from 'moment';
 
 @Component({
   selector: 'app-details-product',
@@ -32,8 +33,8 @@ export class DetailsProductComponent implements OnInit {
           id: value.id,
           name:  ProductTypes[value.product.type],
           number: value.product.id,
-          issue_date: value.issue_date,
-          due_date: value.due_date,
+          issue_date:  Moment(value.issue_date).locale('es').format('L'),
+          due_date: Moment(value.due_date).locale('es').format('L'),
           sumary: value.summary
 
         }
