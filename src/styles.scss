@@ -1,1 +1,163 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import 'path-enviroment';
+@import 'variables';
+
+@font-face {
+  font-family: inter;
+  src: url('#{$path}fonts/inter/Inter-Medium.eot');
+  src: url('#{$path}fonts/inter/Inter-Medium.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/inter/Inter-Medium.woff') format("woff"),
+  url('#{$path}fonts/inter/Inter-Medium.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: interRegular;
+  src: url('#{$path}fonts/inter/Inter-Regular.eot');
+  src: url('#{$path}fonts/inter/Inter-Regular.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/inter/Inter-Regular.woff') format("woff"),
+  url('#{$path}fonts/inter/Inter-Regular.ttf') format("truetype");
+
+}
+
+@font-face {
+  font-family: interBold;
+  src: url('#{$path}fonts/inter/Inter-Bold.eot');
+  src: url('#{$path}fonts/inter/Inter-Bold.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/inter/Inter-Bold.woff') format("woff"),
+  url('#{$path}fonts/inter/Inter-Bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: interSemiBold;
+  src: url('#{$path}fonts/inter/Inter-SemiBold.eot');
+  src: url('#{$path}fonts/inter/Inter-SemiBold.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/inter/Inter-SemiBold.woff') format("woff"),
+  url('#{$path}fonts/inter/Inter-SemiBold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: icon;
+  src: url('#{$path}fonts/icon/icon.eot');
+  src: url('#{$path}fonts/icon/icon.eot?#iefix') format("embedded-opentype"),
+  url('#{$path}fonts/icon/icon.woff') format("woff"),
+  url('#{$path}fonts/icon/icon.ttf') format("truetype");
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-family: 'interRegular';
+  font-size: 15px;
+}
+
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.carousel.slide{
+
+  &:focus{
+    outline: transparent
+  }
+}
+.carousel-inner {
+  height: 75px;
+}
+
+.carousel-item{
+  top: 15px !important;
+}
+
+
+.container-purple-bank {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 30px 10px;
+  box-sizing: border-box;
+}
+
+.carousel-control-next-icon {
+  background-image: none !important;
+  width: initial !important;
+  height: initial !important;
+
+  &::before {
+    content: "\e902";
+    font-size: 30px;
+    font-family: "icon";
+    display: inline-block;
+    line-height: 23px;
+    color: $secondary-color;
+  }
+
+}
+
+.carousel-control-prev-icon {
+  background-image: none !important;
+  width: initial !important;
+  height: initial !important;
+
+  &::before {
+    content: "\e901";
+    font-size: 30px;
+    font-family: "icon";
+    display: inline-block;
+    line-height: 23px;
+    color: $secondary-color;
+  }
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  width: 5% !important;
+  top: -7px !important;
+}
+
+.carousel-indicators li {
+  border-radius: 50%;
+  width: 5px !important;
+  height: 5px !important;
+}
+
+.picsum-img-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-indicators {
+  margin-bottom: 10px !important;
+}
+
+ .carousel-indicators li {
+  border: 1.5px solid $secondary-color !important;
+
+}
+.carousel-indicators .active{
+background-color:$secondary-color !important;
+
+}
+
+.carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
+
+  &::before {
+    color: #000 !important;
+  }
+
+}

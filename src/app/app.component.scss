@@ -1,0 +1,23 @@
+
+@import 'variables';
+.container-purple-bank{
+  display: flex;
+  nav {
+    
+    display: none;
+    @media (min-width: $grid-breakpoints-xl) {
+      width: 15%;
+      display: block;
+    }
+  }
+  
+  section {
+    width: 100%;
+    padding: 22px 10px;
+    @media (min-width: $grid-breakpoints-xl) {
+      width: 85%;
+      padding: 22px 40px;
+    }
+  }
+  
+}

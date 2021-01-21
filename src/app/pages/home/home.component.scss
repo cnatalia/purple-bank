@@ -1,0 +1,181 @@
+@import 'variables';
+
+.home {
+
+  .other-banks,
+  .purple-bank {
+    margin-bottom: 10px;
+
+    &::after {
+      content: "\e90d";
+      font-family: 'icon';
+      font-size: 30px;
+      color: $secondary-color;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      vertical-align: text-bottom;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .purple-bank {
+    &::after {
+      content: "\e90c";
+    }
+  }
+
+  h1 {
+    font-size: 16px;
+    font-family: 'interBold'
+  }
+
+  .financialProducts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    border: 1px solid $lines-color;
+    border-radius: 5px;
+    padding: 15px;
+    flex-direction: column;
+    -webkit-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+    -moz-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+    box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+
+    @media (min-width: $grid-breakpoints-md) {
+      height: 76px;
+      flex-direction: row;
+      padding: 0 35px;
+    }
+  }
+
+  .carousel {
+    max-width: 285px;
+    width: 100%;
+
+    .productName {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    .value {
+      font-size: 18px;
+      font-family: 'interBold'
+    }
+
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  .group-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nameOfGropup {
+    font-size: 14px;
+    font-family: 'interSemiBold';
+
+    &:first-child {
+      @media (min-width: $grid-breakpoints-md) {
+        margin-left: 20px;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      background-color: pink;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    &::before {
+      @media (min-width: $grid-breakpoints-md) {
+        content: "";
+        width: 1px;
+        height: 15px;
+        display: inline-block;
+        background-color: $secondary-color;
+        vertical-align: middle;
+        margin-left: 15px;
+        margin-right: 18px;
+      }
+    }
+
+    &:first-child {
+      &::before {
+        content: initial;
+      }
+    }
+  }
+
+  .wraperNames {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    @media (min-width: $grid-breakpoints-md) {
+      flex-direction: row;
+    }
+
+  }
+
+  .individual-card {
+    margin-top: 35px;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: $grid-breakpoints-md) {
+      width: 30%;
+    }
+
+    @media (min-width: $grid-breakpoints-xlg) {
+      width: 24%;
+    }
+
+    @media (min-width: $grid-breakpoints-xl) {
+      width: initial
+    }
+
+
+  }
+
+
+
+}
+
+.green{
+  &::after {
+  background-color: $gruop1 !important;
+  }
+}
+
+.orange{
+  &::after {
+  background-color: $group2 !important;
+  }
+}
+
+.pink{
+  &::after {
+  background-color: $group4 !important;
+  }
+}
+
+.purple{
+  &::after {
+  background-color: $group3 !important}
+}
+
+.default{
+  background: grey
+}

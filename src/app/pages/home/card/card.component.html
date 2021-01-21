@@ -1,0 +1,57 @@
+
+<div class="container-card" [ngClass]="{'green' : name ==='CDT' , 'orange': name ==='Crédito Libre Inversión', 'purple': name ==='Tarjeta de Credito', 'pink': name ==='Cuenta Corriente'}" [class.block]="this.show === 'other-banks' " [class.none]="this.show === 'purple-bank' && this.belongsTo !== 'PURPLE_BANK'"    >
+
+  <div class="headerCard">
+    <img [src]="this.imageURL | pathImg" alt="">
+    <a href="noscript()" class="verDetalle" (click)="goToDetails()">Ver detalle</a>
+  </div>
+  <div class="cifres">
+    <span class="type">{{name}}</span>
+    <span class="number">Nro. {{this.typeOfProduct === 'CREDIT_CARD' ? 'xxx xxxx ' : ''}}{{this.typeOfProduct === 'CREDIT_CARD' ? (number | slice: -4) : number }}</span>
+
+    <span class="saldoTitle">{{this.saldoTitleUse}}</span>
+    <span class="saldoValue">{{this.amount | currency:'COP':'symbol-narrow' }}</span>
+
+    <div *ngIf="this.typeOfProduct === 'FIXED_TERM_DEPOSIT_CERTIFICATE'">
+      <div class="term">
+        <span class="saldoTitle">{{'home.fixed_term_deposit_certificate.term' | translate}} </span>
+        <span class="saldoValue number">
+          {{this.term}}
+        </span>
+      </div>
+      <div class="due_date">
+        <span class="saldoTitle">{{'home.fixed_term_deposit_certificate.due_date' | translate}} </span>
+        <span class="saldoValue number">
+          {{this.dueDate}}
+        </span>
+      </div>
+
+    </div>
+    <div class="progress_custom" *ngIf="this.typeOfProduct === 'FREE_INVESTMENT_LOAN'">
+     <span class="saldoTitle">{{'home.free_investment_loan.balance'| translate}} {{this.sumary.paid_installments}} de {{this.sumary.total_installments}} cuotas</span>
+     <div class="time-bar">
+       <div class="rectangle-time-background" [style.width]="barProgress+'%'"></div>
+       <div class="rectangle-time" ></div>
+     </div>
+    </div>
+
+    <div class="progress_custom2" *ngIf="this.typeOfProduct === 'CREDIT_CARD' && this.status === 'UP_TO_DATE'">
+      <span class="saldoTitle">{{'home.credit_card.due_date' | translate}}  {{this.sumary.next_payment}}</span>
+      <span class="saldoTitle margin-20">{{'home.credit_card.total'| translate}} {{this.sumary.balance | currency:'COP':'symbol-narrow' }}</span>
+      <div class="time-bar">
+        <div class="rectangle-time-background" [style.width]="barProgress+'%'"></div>
+        <div class="rectangle-time" ></div>
+      </div>
+    </div>
+
+    <div class="progress_custom2" *ngIf="this.typeOfProduct === 'CREDIT_CARD' && this.status !== 'UP_TO_DATE'">
+      <span class="saldoTitle">{{'home.credit_card.due_date' | translate}}  {{this.sumary.next_payment}}</span>
+      <span class="saldoTitle">{{'home.credit_card.total'| translate}} {{this.sumary.balance | currency:'COP':'symbol-narrow' }}</span>
+      
+      <button>
+       PAGAR
+      </button>
+    </div>
+  </div>
+
+</div>

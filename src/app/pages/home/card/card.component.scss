@@ -1,0 +1,176 @@
+@import 'variables';
+
+.container-card {
+  padding: 19px 19px 0 19px;
+  width: 100%;
+  height: 281px;
+  -webkit-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+  -moz-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+  box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+  border-radius: 5px;
+  border: 1px solid $lines-color;
+  @media (min-width: $grid-breakpoints-xl) {
+    width: 217px;
+  }
+
+  .headerCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .verDetalle {
+    font-size: 13px;
+    color: $link;
+
+    &::after {
+      content: "\e902";
+      font-size: 20px;
+      font-family: 'icon';
+      display: inline-block;
+      vertical-align: sub;
+    }
+  }
+
+  .cifres {
+    margin-top: 10px;
+
+    span {
+      display: block;
+    }
+
+    .type {
+
+      line-height: 24px;
+      margin-bottom: 5px;
+    }
+
+    .number {
+      margin-bottom: 17px;
+    }
+
+    .type,
+    .saldoValue {
+      font-size: 18px;
+      font-family: 'interBold'
+    }
+
+
+    .number,
+    .saldoTitle {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+
+    .term,
+    .due_date {
+      span {
+        display: inline-block;
+      }
+    }
+  }
+
+
+  .time-bar {
+    position: relative;
+    margin-top: 6px;
+    .text-time-bar {
+      width: 100%;
+      padding: 20px 0;
+      font-size: rem(14);
+
+    }
+
+    .time-bar {
+      margin-bottom: 32px;
+      width: 100%;
+      font-size: rem(11);
+    }
+
+    .rectangle-time-background {
+      height: 5px;
+      border-radius: 4px;
+      background-color: $over-progress-bar;
+      margin-right: 1%;
+      width: 92%;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .text-time-minutes {
+      width: 7%;
+      height: 10px;
+      float: left;
+      position: relative;
+      top: -2px;
+
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 13px;
+      font-weight: bolder;
+      color: gray;
+
+    }
+
+    .rectangle-time {
+      height: 5px;
+      border-radius: 4px;
+      margin-left: 0;
+      background-color: $back-progress-bar;
+      position: relative;
+    }
+  }
+  .progress_custom{
+    margin-top: 40px;
+  }
+
+  .progress_custom2, .margin-20{
+    margin-top: 20px;
+  }
+  button{
+    width: 100%;
+    background-color: $button;
+    color: white;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 13px;
+    font-family: 'interSemiBold';
+  }
+
+ 
+}
+
+.block{
+  display: block;
+}
+.none{
+  display: none;
+}
+
+
+.green{
+  border: 1px solid  $gruop1;
+ 
+}
+
+.orange{
+  border: 1px solid  $group2;
+  
+}
+
+.pink{
+  border: 1px solid  $group3;
+  
+}
+
+.purple{
+  border: 1px solid  $group4;
+  
+}
