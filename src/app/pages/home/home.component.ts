@@ -2,11 +2,13 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FinancialDataService } from '../../services/financial-data/financial-data.service';
-import { pipe, Observable, of } from 'rxjs';
+import { pipe, Observable, of, async } from 'rxjs';
 import { FinancialDataResponse } from '../../shared/models/financial-data-response';
 import { tap, map, reduce, distinct, filter } from 'rxjs/operators';
 import { ProductTypes } from '../../shared/enums/product-types';
 import * as Moment from 'moment';
+import { Store } from '@ngrx/store';
+import { appState } from '../../app.reducer';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,7 @@ import * as Moment from 'moment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
- 
+
   public financialData$;
   public productsCount;
   public productsNames;
@@ -23,9 +25,13 @@ export class HomeComponent implements OnInit {
   public ids;
   public details;
   public dataTransformed;
+  public state$: Observable<any>
 
-  constructor(private serviFinancialData: FinancialDataService) {
-
+  constructor(
+    private serviFinancialData: FinancialDataService,
+    private store: Store<appState>
+  ) {
+    this.state$ = this.store.select('estado')
   }
 
   ngOnInit(): void {
@@ -46,13 +52,13 @@ export class HomeComponent implements OnInit {
             summary: response.summary
           }
         })
-        
-        this.productsCount = this.dataTransformed
+
+      this.productsCount = this.dataTransformed
         .map(response => { return response.name })
         .reduce((allProducts, product) => {
-        product in allProducts ? allProducts[product]++ : allProducts[product] = 1
-        return allProducts
-      }, {})
+          product in allProducts ? allProducts[product]++ : allProducts[product] = 1
+          return allProducts
+        }, {})
 
       //console.log(this.dataTransformed)
       //let temporal = this.financialData$.map(response => { return response.product })
@@ -81,6 +87,17 @@ export class HomeComponent implements OnInit {
 
     return data.find(value => value.product.id === id)
 
+  }
+
+  public changeView() {
+    let estado;
+    let type;
+
+    this.state$.subscribe( valor => estado = valor.estado)
+   
+    type = estado === 'purple-bank' ? 'changeViewOthers' : 'changeViewPurple'
+
+    this.store.dispatch({ type: type})
   }
 
 

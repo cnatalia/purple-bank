@@ -6,8 +6,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,8 +22,10 @@ import { DetailsProductComponent } from './pages/details-product/details-product
 import { HomeComponent } from './pages/home/home.component';
 import { ImagePathPipe } from './shared/pipes/path-assets.pipe';
 import { CardComponent } from './pages/home/card/card.component';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './app.reducer';
 export function createTranslateLoader(http: HttpClient) {
-	return new TranslateHttpLoader(http, `${environment.assets}data/`, '.json');
+  return new TranslateHttpLoader(http, `${environment.assets}data/`, '.json');
 }
 
 @NgModule({
@@ -37,17 +39,18 @@ export function createTranslateLoader(http: HttpClient) {
     ImagePathPipe
   ],
   imports: [
+    StoreModule.forRoot({estado: reducer}),
     NgbModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
-			loader: {
-				provide: TranslateLoader,
-				useFactory: (createTranslateLoader),
-				deps: [HttpClient]
-		}
-		})
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

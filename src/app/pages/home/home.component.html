@@ -1,5 +1,5 @@
 <div class="home">
-  <div class="toggle">{{ 'home.preTitle' | translate }}</div>
+  <div  (click)="changeView()" [ngClass]="(state$ | async)?.estado">{{ 'home.preTitle' | translate }}</div>
   <div class="financialProducts">
     <h1>{{ 'home.title' | translate }}</h1>
     <div class="carrousel">
