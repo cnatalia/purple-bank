@@ -1,5 +1,6 @@
+
 <div class="container-card" [class.block]="this.show === 'other-banks' " [class.none]="this.show === 'purple-bank' && this.belongsTo !== 'PURPLE_BANK'"    >
- 
+
   <div class="headerCard">
     <img [src]="this.imageURL | pathImg" alt="">
     <a href="noscript()" class="verDetalle" (click)="goToDetails()">Ver detalle</a>

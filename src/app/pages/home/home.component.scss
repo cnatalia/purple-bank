@@ -1,7 +1,9 @@
 @import 'variables';
 
 .home {
-  .other-banks, .purple-bank {
+
+  .other-banks,
+  .purple-bank {
     margin-bottom: 10px;
 
     &::after {
@@ -17,7 +19,8 @@
       cursor: pointer;
     }
   }
-  .purple-bank{
+
+  .purple-bank {
     &::after {
       content: "\e90d";
     }
@@ -40,6 +43,7 @@
     -webkit-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
     -moz-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
     box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+
     @media (min-width: $grid-breakpoints-md) {
       height: 76px;
       flex-direction: row;
@@ -48,48 +52,90 @@
   }
 
   .carousel {
-   max-width: 285px;
-   width: 100%;
-   .productName{
-    font-size: 12px;
-    line-height: 15px;
-   }
-   .value{
-    font-size: 18px;
-    font-family: 'interBold'
-   }
-  
+    max-width: 285px;
+    width: 100%;
+
+    .productName {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    .value {
+      font-size: 18px;
+      font-family: 'interBold'
+    }
+
   }
 
   span {
     display: inline-block;
   }
 
-  .group-cards{
+  .group-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .nameOfGropup{
-    display: block;
-    width: 100%;
+
+  .nameOfGropup {
+    font-size: 14px;
+    font-family: 'interSemiBold';
+    &:first-child{
+      @media (min-width: $grid-breakpoints-md) {
+        margin-left: 20px;
+      }
+    }
+    &::after{
+      
+      @media (min-width: $grid-breakpoints-md) {
+        content: "";
+        width: 1px;
+        height: 15px;
+        display: inline-block;
+        background-color: $secondary-color;
+        vertical-align: middle;
+        margin-left: 15px;
+        margin-right: 18px;
+      }
+    }
+
+    &:last-child{
+      &::after{
+        content: initial;
+      }
+    }
+  }
+  .wraperNames{
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    @media (min-width: $grid-breakpoints-md) {
+      flex-direction: row;
+    }
+
   }
 
-  .individual-card{
+  .individual-card {
     margin-top: 35px;
     position: relative;
     width: 100%;
+
     @media (min-width: $grid-breakpoints-md) {
       width: 30%;
     }
+
     @media (min-width: $grid-breakpoints-xlg) {
       width: 24%;
     }
+
     @media (min-width: $grid-breakpoints-xl) {
       width: initial
     }
+
+
   }
 
-  
+
 
 }
