@@ -179,3 +179,60 @@
 .default{
   background: grey
 }
+
+.recomendations{
+  .texto{
+    border-top: 1px dotted;
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px 0;
+    border-bottom: 1px dotted;
+    span{
+      display: block;
+      text-align: center;
+      &:first-child{
+        font-size: 18px;
+
+      }
+      &:last-child{
+        font-size: 14px;
+        margin-top: 8px;
+        line-height: 18px;
+        
+      }
+    }
+  }
+  button{
+    width: 230px;
+    margin: 20px auto 30px;
+    display: block;
+    background-color: $button;
+    color: white;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    font-size: 13px;
+    font-family: 'interSemiBold';
+    @media (min-width: $grid-breakpoints-md) {
+      width: 300px;
+    }
+  }
+
+  .otherProduct{
+    span{
+      display: block;
+      text-align: center;
+      &:first-child{
+        font-size: 24px;
+
+      }
+      &:last-child{
+        font-size: 20px;
+        font-family: 'interBold'
+          
+      }
+    }
+  }
+}
