@@ -24,7 +24,7 @@
 
   <ul class="wraperNames">
       El resumen de tus productos es:
-    <li class="nameOfGropup" *ngFor="let name of this.productsNames;let i = index">  {{this.productsNameTrasnlated[i].name}}
+    <li class="nameOfGropup" *ngFor="let name of this.productsNames;let i = index" [ngClass]="{'green' : name ==='FIXED_TERM_DEPOSIT_CERTIFICATE' , 'orange': name ==='FREE_INVESTMENT_LOAN', 'purple': name ==='CREDIT_CARD', 'pink': name ==='CURRENT_ACCOUNT'}" >  {{this.productsNameTrasnlated[i].name}}
         ({{this.productsNameTrasnlated[i].quantity}})</li>
   </ul>
   <div class="group-cards">

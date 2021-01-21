@@ -1,5 +1,5 @@
 
-<div class="container-card" [class.block]="this.show === 'other-banks' " [class.none]="this.show === 'purple-bank' && this.belongsTo !== 'PURPLE_BANK'"    >
+<div class="container-card" [ngClass]="{'green' : name ==='CDT' , 'orange': name ==='Crédito Libre Inversión', 'purple': name ==='Tarjeta de Credito', 'pink': name ==='Cuenta Corriente'}" [class.block]="this.show === 'other-banks' " [class.none]="this.show === 'purple-bank' && this.belongsTo !== 'PURPLE_BANK'"    >
 
   <div class="headerCard">
     <img [src]="this.imageURL | pathImg" alt="">
