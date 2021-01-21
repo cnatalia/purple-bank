@@ -23,7 +23,12 @@
   </div>
 
   <div class="group-cards">
-    <app-card [typeOfProduct]='"Cuenta de Ahorro"' [number]='"100253772"' [saldoTitle]='"Salgo disponible"' [saldoValue]='"$5.351.000,00"'></app-card>
+    <ng-container  *ngFor="let name of this.productsNames;let i = index">
+      <!-- <span class="nameOfGropup">{{this.productsNameTrasnlated[i].name}} ({{this.productsNameTrasnlated[i].quantity}})</span>  -->
+      <app-card class="individual-card" *ngFor="let product of this.productsGruped[0][name]" [typeOfProduct]='product.type'
+        [number]='"100253772"' [saldoTitle]='"Salgo disponible"' [saldoValue]='"$5.351.000,00"'></app-card>
+    </ng-container>
+
   </div>
 
 </div>

@@ -54,4 +54,20 @@
     display: inline-block;
   }
 
+  .group-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .nameOfGropup{
+    display: block;
+    width: 100%;
+  }
+
+  .individual-card{
+    margin-top: 35px;
+  }
+
+  
+
 }
