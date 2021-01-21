@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
   public productsNames;
   public productsNameTrasnlated;
   public productsGruped;
+  public ids;
+  public details;
+  public dataTransformed;
 
   constructor(private serviFinancialData: FinancialDataService) {
 
@@ -29,21 +32,37 @@ export class HomeComponent implements OnInit {
 
     this.serviFinancialData.getFinancialData().subscribe(valor => {
       this.financialData$ = valor
-      this.productsCount = this.financialData$
-        .map(response => { return response.product.type })
+
+      this.dataTransformed = this.financialData$.map(
+        response => {
+          return {
+            name: response.product.type,
+            id: response.product.id,
+            issuer: response.product.issuer,
+            status: response.status ? response.status : null,
+            issue_date: response.issue_date,
+            due_date: response.due_date,
+            summary: response.summary
+          }
+        })
+        
+        this.productsCount = this.dataTransformed
+        .map(response => { return response.name })
         .reduce((allProducts, product) => {
-          product in allProducts ? allProducts[product]++ : allProducts[product] = 1
-          return allProducts
-        }, {})
+        product in allProducts ? allProducts[product]++ : allProducts[product] = 1
+        return allProducts
+      }, {})
 
-      let temporal = this.financialData$.map(response => { return response.product })
+      //console.log(this.dataTransformed)
+      //let temporal = this.financialData$.map(response => { return response.product })
 
-      this.productsGruped = Array(this.groupBy(temporal, 'type'))
+      this.productsGruped = Array(this.groupBy(this.dataTransformed.map(response => { return response }), 'name'))
 
+      console.log(this.productsGruped)
       this.productsNames = Object.keys(this.productsCount)
-    
-      this.productsNameTrasnlated = this.productsNames.map( value => { return { name: ProductTypes[value], quantity : this.productsCount[value]  } } )
-console.log(this.financialData$)
+
+      this.productsNameTrasnlated = this.productsNames.map(value => { return { name: ProductTypes[value], quantity: this.productsCount[value] } })
+
     })
 
   }
@@ -58,11 +77,11 @@ console.log(this.financialData$)
     }, {})
   }
 
-  public fetchOffer() {
+  public getDetails(data, id) {
 
+    return data.find(value => value.product.id === id)
 
   }
-
 
 
 }

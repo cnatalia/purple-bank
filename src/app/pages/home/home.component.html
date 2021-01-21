@@ -6,14 +6,14 @@
       <ngb-carousel interval="90000">
         <ng-template ngbSlide>
           <div class="picsum-img-wrapper">
-            <span class="productName">{{ 'home.current_account' | translate }}</span>
+            <span class="productName">{{ 'home.slider_current_account' | translate }}</span>
             <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'} }}</span>
           </div>
 
         </ng-template>
         <ng-template ngbSlide>
           <div class="picsum-img-wrapper">
-            <span class="productName">{{ 'home.savings_product' | translate }}</span>
+            <span class="productName">{{ 'home.slider_savings_product' | translate }}</span>
             <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'} }}</span>
           </div>
         </ng-template>
@@ -25,8 +25,8 @@
   <div class="group-cards">
     <ng-container  *ngFor="let name of this.productsNames;let i = index">
       <!-- <span class="nameOfGropup">{{this.productsNameTrasnlated[i].name}} ({{this.productsNameTrasnlated[i].quantity}})</span>  -->
-      <app-card class="individual-card" *ngFor="let product of this.productsGruped[0][name]" [typeOfProduct]='product.type'
-        [number]='"100253772"' [saldoTitle]='"Salgo disponible"' [saldoValue]='"$5.351.000,00"'></app-card>
+      <app-card class="individual-card" *ngFor="let product of this.productsGruped[0][name]" [typeOfProduct]='product.name'
+        [number]='product.id'  [saldoValue]='"$5.351.000,00"' [belongsTo] ='product.issuer' [status]='product.status' [sumary]='product.summary'></app-card>
     </ng-container>
 
   </div>
