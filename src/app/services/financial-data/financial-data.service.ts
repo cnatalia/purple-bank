@@ -23,7 +23,7 @@ export class FinancialDataService {
   getFinancialData(): Observable<any> {
     return this.http.get<any>(this.url)
       .pipe(
-        tap((response: any) => console.log('fetched financial data: ')),
+        tap((response: any) => console.log('Data ok! ')),
         catchError(this.handleError<any>('getFinancialData'))
       );
   }
@@ -31,9 +31,7 @@ export class FinancialDataService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      console.error(error);
-
-      // console.log(`${operation} failed: ${error.message}`);
+      console.log(`${operation} failed: ${error.message}`);
 
       return of(result as T);
     };

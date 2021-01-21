@@ -41,7 +41,6 @@ export class DetailsProductComponent implements OnInit {
 
         }
       }).filter(val => val.id === this.id)
-      console.log(this.data)
     })
   }
 
