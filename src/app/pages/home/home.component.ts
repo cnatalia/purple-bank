@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   public details;
   public dataTransformed;
   public state$: Observable<any>
+  public sendShow = 'other-banks'
 
   constructor(
     private serviFinancialData: FinancialDataService,
@@ -60,7 +61,7 @@ export class HomeComponent implements OnInit {
           return allProducts
         }, {})
 
-      //console.log(this.dataTransformed)
+      console.log(this.dataTransformed)
       //let temporal = this.financialData$.map(response => { return response.product })
 
       this.productsGruped = Array(this.groupBy(this.dataTransformed.map(response => { return response }), 'name'))
@@ -93,11 +94,11 @@ export class HomeComponent implements OnInit {
     let estado;
     let type;
 
-    this.state$.subscribe( valor => estado = valor.estado)
-   
-    type = estado === 'purple-bank' ? 'changeViewOthers' : 'changeViewPurple'
+    this.state$.subscribe(valor => estado = valor.estado)
 
-    this.store.dispatch({ type: type})
+    type = estado === 'purple-bank' ? 'changeViewOthers' : 'changeViewPurple'
+    this.sendShow = estado;
+    this.store.dispatch({ type: type })
   }
 
 

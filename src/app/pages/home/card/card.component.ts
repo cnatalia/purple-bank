@@ -3,8 +3,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProductTypes } from '../../../shared/enums/product-types';
 import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs/operators';
-import { zip } from 'rxjs';
+import { zip, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { appState } from '../../../app.reducer';
 
 @Component({
   selector: 'app-card',
@@ -21,6 +23,7 @@ export class CardComponent implements OnInit {
   public term;
   public barProgress;
   public imageURL = 'images/other.svg';
+  public state$: Observable<any>
 
   @Input() consecutive: string;
   @Input() typeOfProduct: string;
@@ -30,11 +33,14 @@ export class CardComponent implements OnInit {
   @Input() status: string;
   @Input() sumary;
   @Input() dueDate;
+  @Input() show;
+
 
 
   constructor(private translate: TranslateService,
-  private router: Router) {
-
+    private router: Router,
+    private store: Store<appState>) {
+    this.state$ = this.store.select('estado')
   }
 
   ngOnInit(): void {
@@ -75,15 +81,15 @@ export class CardComponent implements OnInit {
       case 'FREE_INVESTMENT_LOAN':
         this.saldoTitleUse = this.status === 'UP_TO_DATE' ? this.saldoTitleArrayUpDate.find(val => val.name === 'freeInvestmentLoan').key : this.saldoTitleArrayNotUpDate.find(val => val.name === 'freeInvestmentLoan').key
         this.amount = this.sumary.amount
-        this.barProgress = (this.sumary.paid_installments * this.sumary.total_installments)/100 * 10
+        this.barProgress = (this.sumary.paid_installments * this.sumary.total_installments) / 100 * 10
         break;
 
       case 'CREDIT_CARD':
         this.saldoTitleUse = this.status === 'UP_TO_DATE' ? this.saldoTitleArrayUpDate.find(val => val.name === 'creditCard').key : this.saldoTitleArrayNotUpDate.find(val => val.name === 'creditCard').key
-        this.amount = this.status === 'UP_TO_DATE' ? this.sumary.advance_credit_line :  this.sumary.min_payment
+        this.amount = this.status === 'UP_TO_DATE' ? this.sumary.advance_credit_line : this.sumary.min_payment
         //this.barProgress = (this.sumary.balance * this.sumary.credit_line)/100 
         this.imageURL = `images/${this.sumary.franchise}.svg`
-        
+
         break;
 
       case 'CURRENT_ACCOUNT':
@@ -101,7 +107,7 @@ export class CardComponent implements OnInit {
 
   }
 
-  public goToDetails(){
+  public goToDetails() {
     event.preventDefault()
     this.router.navigateByUrl(`/details/${this.consecutive}`)
     //consecutive
