@@ -80,6 +80,7 @@ export class CardComponent implements OnInit {
       case 'CREDIT_CARD':
         this.saldoTitleUse = this.status === 'UP_TO_DATE' ? this.saldoTitleArrayUpDate.find(val => val.name === 'creditCard').key : this.saldoTitleArrayNotUpDate.find(val => val.name === 'creditCard').key
         this.amount = this.status === 'UP_TO_DATE' ? this.sumary.advance_credit_line :  this.sumary.min_payment
+        //this.barProgress = (this.sumary.balance * this.sumary.credit_line)/100 
         break;
 
       case 'CURRENT_ACCOUNT':

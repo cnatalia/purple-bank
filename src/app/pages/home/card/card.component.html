@@ -34,6 +34,24 @@
        <div class="rectangle-time" ></div>
      </div>
     </div>
+
+    <div class="progress_custom2" *ngIf="this.typeOfProduct === 'CREDIT_CARD' && this.status === 'UP_TO_DATE'">
+      <span class="saldoTitle">{{'home.credit_card.due_date' | translate}}  {{this.sumary.next_payment}}</span>
+      <span class="saldoTitle margin-20">{{'home.credit_card.total'| translate}} {{this.sumary.balance}}</span>
+      <div class="time-bar">
+        <div class="rectangle-time-background" [style.width]="barProgress+'%'"></div>
+        <div class="rectangle-time" ></div>
+      </div>
+    </div>
+
+    <div class="progress_custom2" *ngIf="this.typeOfProduct === 'CREDIT_CARD' && this.status !== 'UP_TO_DATE'">
+      <span class="saldoTitle">{{'home.credit_card.due_date' | translate}}  {{this.sumary.next_payment}}</span>
+      <span class="saldoTitle">{{'home.credit_card.total'| translate}} {{this.sumary.balance}}</span>
+      
+      <button>
+       PAGAR
+      </button>
+    </div>
   </div>
 
 </div>
