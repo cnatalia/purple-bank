@@ -3,19 +3,14 @@
   <div class="financialProducts">
     <h1>{{ 'home.title' | translate }}</h1>
     <div class="carrousel">
-      <ngb-carousel interval="90000">
-        <ng-template ngbSlide>
+      <ngb-carousel interval="30000">
+        <ng-template ngbSlide *ngFor="let name of this.productsNames ;let i = index">
           <div class="picsum-img-wrapper">
-            <span class="productName">{{ 'home.slider_current_account' | translate }}</span>
-            <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'} }}</span>
+        
+            <span class="productName">{{ 'home.slider_current_account' | translate:{product: this.productsNameTrasnlated[i].name} }}</span>
+            <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'}  }}</span>
           </div>
 
-        </ng-template>
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper">
-            <span class="productName">{{ 'home.slider_savings_product' | translate }}</span>
-            <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'} }}</span>
-          </div>
         </ng-template>
       </ngb-carousel>
 
