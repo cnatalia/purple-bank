@@ -18,6 +18,7 @@ export class CardComponent implements OnInit {
   public saldoTitleUse;
   public amount;
   public term;
+  public barProgress;
 
 
   @Input() typeOfProduct: string;
@@ -73,6 +74,7 @@ export class CardComponent implements OnInit {
       case 'FREE_INVESTMENT_LOAN':
         this.saldoTitleUse = this.status === 'UP_TO_DATE' ? this.saldoTitleArrayUpDate.find(val => val.name === 'freeInvestmentLoan').key : this.saldoTitleArrayNotUpDate.find(val => val.name === 'freeInvestmentLoan').key
         this.amount = this.sumary.amount
+        this.barProgress = (this.sumary.paid_installments * this.sumary.total_installments)/100 * 10
         break;
 
       case 'CREDIT_CARD':

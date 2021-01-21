@@ -26,6 +26,14 @@
       </div>
 
     </div>
+
+    <div class="progress_custom" *ngIf="this.typeOfProduct === 'FREE_INVESTMENT_LOAN'">
+     <span class="saldoTitle">{{'home.free_investment_loan.balance'| translate}} {{this.sumary.paid_installments}} de {{this.sumary.total_installments}} cuotas</span>
+     <div class="time-bar">
+       <div class="rectangle-time-background" [style.width]="barProgress+'%'"></div>
+       <div class="rectangle-time" ></div>
+     </div>
+    </div>
   </div>
 
 </div>

@@ -37,7 +37,7 @@
     }
 
     .type {
-     
+
       line-height: 24px;
       margin-bottom: 5px;
     }
@@ -52,6 +52,7 @@
       font-family: 'interBold'
     }
 
+
     .number,
     .saldoTitle {
       font-size: 12px;
@@ -59,10 +60,67 @@
     }
 
 
-    .term, .due_date{
-      span{
+    .term,
+    .due_date {
+      span {
         display: inline-block;
       }
     }
+  }
+
+
+  .time-bar {
+    position: relative;
+    margin-top: 6px;
+    .text-time-bar {
+      width: 100%;
+      padding: 20px 0;
+      font-size: rem(14);
+
+    }
+
+    .time-bar {
+      margin-bottom: 32px;
+      width: 100%;
+      font-size: rem(11);
+    }
+
+    .rectangle-time-background {
+      height: 5px;
+      border-radius: 4px;
+      background-color: $over-progress-bar;
+      margin-right: 1%;
+      width: 92%;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .text-time-minutes {
+      width: 7%;
+      height: 10px;
+      float: left;
+      position: relative;
+      top: -2px;
+
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 13px;
+      font-weight: bolder;
+      color: gray;
+
+    }
+
+    .rectangle-time {
+      height: 5px;
+      border-radius: 4px;
+      margin-left: 0;
+      background-color: $back-progress-bar;
+      position: relative;
+    }
+  }
+  .progress_custom{
+    margin-top: 40px;
   }
 }
