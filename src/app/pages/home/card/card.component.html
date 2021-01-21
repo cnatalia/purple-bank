@@ -2,7 +2,7 @@
 
   <div class="headerCard">
     <img [src]="this.imageURL | pathImg" alt="">
-    <a href="http://" class="verDetalle">Ver detalle</a>
+    <a href="noscript()" class="verDetalle" (click)="goToDetails()">Ver detalle</a>
   </div>
   <div class="cifres">
     <span class="type">{{name}}</span>

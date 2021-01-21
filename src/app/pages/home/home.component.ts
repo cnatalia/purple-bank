@@ -14,7 +14,7 @@ import { ProductTypes } from '../../shared/enums/product-types';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
+ 
   public financialData$;
   public productsCount;
   public productsNames;
@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
       this.dataTransformed = this.financialData$.map(
         response => {
           return {
+            consecutive: response.id,
             name: response.product.type,
             id: response.product.id,
             issuer: response.product.issuer,
@@ -58,7 +59,6 @@ export class HomeComponent implements OnInit {
 
       this.productsGruped = Array(this.groupBy(this.dataTransformed.map(response => { return response }), 'name'))
 
-      console.log(this.productsGruped)
       this.productsNames = Object.keys(this.productsCount)
 
       this.productsNameTrasnlated = this.productsNames.map(value => { return { name: ProductTypes[value], quantity: this.productsCount[value] } })

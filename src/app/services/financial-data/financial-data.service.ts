@@ -7,6 +7,7 @@ import { catchError, tap, reduce, distinct, map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment.prod';
 import { FinancialDataResponse } from '../../shared/models/financial-data-response';
+import { filter } from 'minimatch';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,7 @@ export class FinancialDataService {
       return of(result as T);
     };
   }
+
 
 
 }

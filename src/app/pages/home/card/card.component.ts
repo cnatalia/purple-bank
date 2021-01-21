@@ -4,6 +4,7 @@ import { ProductTypes } from '../../../shared/enums/product-types';
 import { TranslateService } from '@ngx-translate/core';
 import { map } from 'rxjs/operators';
 import { zip } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -21,7 +22,7 @@ export class CardComponent implements OnInit {
   public barProgress;
   public imageURL = 'images/other.svg';
 
-
+  @Input() consecutive: string;
   @Input() typeOfProduct: string;
   @Input() number: string;
   @Input() saldoValue: string;
@@ -31,7 +32,8 @@ export class CardComponent implements OnInit {
   @Input() dueDate;
 
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService,
+  private router: Router) {
 
   }
 
@@ -81,6 +83,7 @@ export class CardComponent implements OnInit {
         this.amount = this.status === 'UP_TO_DATE' ? this.sumary.advance_credit_line :  this.sumary.min_payment
         //this.barProgress = (this.sumary.balance * this.sumary.credit_line)/100 
         this.imageURL = `images/${this.sumary.franchise}.svg`
+        
         break;
 
       case 'CURRENT_ACCOUNT':
@@ -98,5 +101,10 @@ export class CardComponent implements OnInit {
 
   }
 
+  public goToDetails(){
+    event.preventDefault()
+    this.router.navigateByUrl(`/details/${this.consecutive}`)
+    //consecutive
+  }
 
 }
