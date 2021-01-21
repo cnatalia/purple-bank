@@ -1,9 +1,11 @@
 /* tslint:disable */
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+import * as Moment from 'moment';
+
 import { FinancialDataService } from '../../services/financial-data/financial-data.service';
 import { ProductTypes } from '../../shared/enums/product-types';
-import * as Moment from 'moment';
 
 @Component({
   selector: 'app-details-product',
@@ -23,23 +25,23 @@ export class DetailsProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params.id
-    console.log(this.route.snapshot.params.id)
+
+    this.id = this.route.snapshot.paramMap.get('id');
 
     this.financialService.getFinancialData().subscribe(value => {
 
-      this.data = value.map( value => {
-        return{
+      this.data = value.map(value => {
+        return {
           id: value.id,
-          name:  ProductTypes[value.product.type],
+          name: ProductTypes[value.product.type],
           number: value.product.id,
-          issue_date:  Moment(value.issue_date).locale('es').format('L'),
+          issue_date: Moment(value.issue_date).locale('es').format('L'),
           due_date: Moment(value.due_date).locale('es').format('L'),
           sumary: value.summary
 
         }
       }).filter(val => val.id === this.id)
- console.log(this.data)
+      console.log(this.data)
     })
   }
 

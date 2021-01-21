@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { TranslateModule } from '@ngx-translate/core';
+
+import { ImagePathPipe } from '../../shared/pipes/path-assets.pipe';
+
 import { NavComponent } from './nav.component';
 
 describe('NavComponent', () => {
@@ -8,9 +12,15 @@ describe('NavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavComponent ]
+      declarations: [
+        NavComponent,
+        ImagePathPipe
+      ],
+      imports: [
+        TranslateModule.forRoot()
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

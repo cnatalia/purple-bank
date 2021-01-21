@@ -1,7 +1,8 @@
 
 
 
-<div *ngIf="this.data">
+<div *ngIf="this.data && this.data.length > 0">
+
   <h1>Tu  {{this.data[0].name}}</h1>
 
  <span >Tu {{this.data[0].name}} número {{this.data[0].number}} fue creada el {{this.data[0].issue_date}} y con fecha de pago {{this.data[0].due_date}} </span>
