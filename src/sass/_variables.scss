@@ -3,4 +3,14 @@ $lines-color: #E4E4E4;
 $link: #1F9FD7;
 $over-progress-bar: #A1A1A1;
 $back-progress-bar: #D7D7D7;
-$button: #179BD5
+$button: #179BD5;
+
+// Breakpoints
+$grid-breakpoints-xs: 0px;
+$grid-breakpoints-xsm: 375px;
+$grid-breakpoints-sm: 560px;
+$grid-breakpoints-md: 768px;
+$grid-breakpoints-lg: 992px;
+$grid-breakpoints-xlg: 1024px;
+$grid-breakpoints-xl: 1200px;
+$grid-breakpoints-xxl: 1600px;

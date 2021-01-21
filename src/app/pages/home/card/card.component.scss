@@ -2,13 +2,16 @@
 
 .container-card {
   padding: 19px 19px 0 19px;
-  width: 217px;
+  width: 100%;
   height: 281px;
   -webkit-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
   -moz-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
   box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
   border-radius: 5px;
   border: 1px solid $lines-color;
+  @media (min-width: $grid-breakpoints-xl) {
+    width: 217px;
+  }
 
   .headerCard {
     display: flex;

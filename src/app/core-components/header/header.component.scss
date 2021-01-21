@@ -5,15 +5,23 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 48px;
+
   .welcome {
     font-family: 'interSemiBold';
+    width: 50%;
+
+    @media (min-width: $grid-breakpoints-md) {
+      width: initial;
+    }
   }
 
   .optionsUser {
     display: flex;
+    flex-direction: column;
 
     li {
       font-size: 13px;
+      text-align: left;
       cursor: pointer;
 
       &::after {
@@ -25,21 +33,26 @@ header {
         display: inline-block;
         margin-left: 15px;
         vertical-align: text-bottom;
+
       }
 
       &:nth-child(2),
       &:nth-child(3) {
-        &::before {
-          content: "";
-          width: 1px;
-          height: 22px;
-          display: inline-block;
-          background-color: $secondary-color;
-          vertical-align: middle;
-          margin-left: 15px;
-          margin-right: 18px;
+
+        @media (min-width: $grid-breakpoints-md) {
+          &::before {
+            content: "";
+            width: 1px;
+            height: 22px;
+            display: inline-block;
+            background-color: $secondary-color;
+            vertical-align: middle;
+            margin-left: 15px;
+            margin-right: 18px;
+          }
         }
       }
+
     }
 
     .profile {
@@ -58,6 +71,10 @@ header {
       &::after {
         content: "\e900";
       }
+    }
+
+    @media (min-width: $grid-breakpoints-md) {
+      flex-direction: row;
     }
   }
 }

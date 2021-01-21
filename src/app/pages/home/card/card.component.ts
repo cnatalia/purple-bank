@@ -73,7 +73,7 @@ export class CardComponent implements OnInit {
 
 
     this.setSaldoTitle()
-
+    
   }
 
   public setSaldoTitle() {

@@ -32,13 +32,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 76px;
+    height: auto;
     border: 1px solid $lines-color;
     border-radius: 5px;
-    padding: 0 35px;
+    padding: 15px;
+    flex-direction: column;
     -webkit-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
     -moz-box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
     box-shadow: 2px 2px 0px 0px rgba(241, 241, 241, 1);
+    @media (min-width: $grid-breakpoints-md) {
+      height: 76px;
+      flex-direction: row;
+      padding: 0 35px;
+    }
   }
 
   .carousel {
@@ -72,6 +78,10 @@
   .individual-card{
     margin-top: 35px;
     position: relative;
+    width: 100%;
+    @media (min-width: $grid-breakpoints-md) {
+      width: initial;
+    }
   }
 
   
