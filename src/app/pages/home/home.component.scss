@@ -80,7 +80,13 @@
     position: relative;
     width: 100%;
     @media (min-width: $grid-breakpoints-md) {
-      width: initial;
+      width: 30%;
+    }
+    @media (min-width: $grid-breakpoints-xlg) {
+      width: 24%;
+    }
+    @media (min-width: $grid-breakpoints-xl) {
+      width: initial
     }
   }
 
