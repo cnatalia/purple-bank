@@ -20,7 +20,6 @@ describe('FinancialDataService', () => {
     });
     httpClient = TestBed.get(HttpClient);
 
-    //service = TestBed.inject(FinancialDataService);
     service = new FinancialDataService(httpClient)
 
   });
@@ -30,7 +29,7 @@ describe('FinancialDataService', () => {
   });
 
   describe('#getFinancialData', () => {
-    it('should send the data advisor', () => {
+    it('should get the financial data', () => {
 
 
       const response: any = {

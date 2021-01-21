@@ -3,11 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, of, pipe } from 'rxjs';
+
+import { filter } from 'minimatch';
+
 import { catchError, tap, reduce, distinct, map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment.prod';
 import { FinancialDataResponse } from '../../shared/models/financial-data-response';
-import { filter } from 'minimatch';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +33,7 @@ export class FinancialDataService {
 
       console.error(error);
 
-      console.log(`${operation} failed: ${error.message}`);
+      // console.log(`${operation} failed: ${error.message}`);
 
       return of(result as T);
     };

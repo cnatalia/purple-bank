@@ -61,9 +61,6 @@ export class HomeComponent implements OnInit {
           return allProducts
         }, {})
 
-      console.log(this.dataTransformed)
-      //let temporal = this.financialData$.map(response => { return response.product })
-
       this.productsGruped = Array(this.groupBy(this.dataTransformed.map(response => { return response }), 'name'))
 
       this.productsNames = Object.keys(this.productsCount)
@@ -82,12 +79,6 @@ export class HomeComponent implements OnInit {
       acc[key].push(obj)
       return acc
     }, {})
-  }
-
-  public getDetails(data, id) {
-
-    return data.find(value => value.product.id === id)
-
   }
 
   public changeView() {

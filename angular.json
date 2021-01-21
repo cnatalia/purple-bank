@@ -33,7 +33,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/environments/environment-scss/dev",
+                "src/environments/environment-scss/local",
                 "src/sass/"
               ]
             },

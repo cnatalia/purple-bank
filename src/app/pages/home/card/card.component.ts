@@ -72,20 +72,24 @@ export class CardComponent implements OnInit {
     ).subscribe();
 
 
-    this.setSaldoTitle()
+    this.setData()
     
   }
 
-  public setSaldoTitle() {
+  public setData() {
     switch (this.typeOfProduct) {
       case 'FREE_INVESTMENT_LOAN':
-        this.saldoTitleUse = this.status === 'UP_TO_DATE' ? this.saldoTitleArrayUpDate.find(val => val.name === 'freeInvestmentLoan').key : this.saldoTitleArrayNotUpDate.find(val => val.name === 'freeInvestmentLoan').key
+        this.saldoTitleUse = this.status === 'UP_TO_DATE' ? 
+        this.saldoTitleArrayUpDate.find(val => val.name === 'freeInvestmentLoan').key : 
+        this.saldoTitleArrayNotUpDate.find(val => val.name === 'freeInvestmentLoan').key
         this.amount = this.sumary.amount
         this.barProgress = (this.sumary.paid_installments * this.sumary.total_installments) / 100 * 10
         break;
 
       case 'CREDIT_CARD':
-        this.saldoTitleUse = this.status === 'UP_TO_DATE' ? this.saldoTitleArrayUpDate.find(val => val.name === 'creditCard').key : this.saldoTitleArrayNotUpDate.find(val => val.name === 'creditCard').key
+        this.saldoTitleUse = this.status === 'UP_TO_DATE' ? 
+        this.saldoTitleArrayUpDate.find(val => val.name === 'creditCard').key : 
+        this.saldoTitleArrayNotUpDate.find(val => val.name === 'creditCard').key
         this.amount = this.status === 'UP_TO_DATE' ? this.sumary.advance_credit_line : this.sumary.min_payment
         //this.barProgress = (this.sumary.balance * this.sumary.credit_line)/100 
         this.imageURL = `images/${this.sumary.franchise}.svg`
@@ -93,7 +97,9 @@ export class CardComponent implements OnInit {
         break;
 
       case 'CURRENT_ACCOUNT':
-        this.saldoTitleUse = this.status === 'OPEN' ? this.saldoTitleArrayUpDate.find(val => val.name === 'currentAccount').key : this.saldoTitleArrayNotUpDate.find(val => val.name === 'currentAccount').key
+        this.saldoTitleUse = this.status === 'OPEN' ? 
+        this.saldoTitleArrayUpDate.find(val => val.name === 'currentAccount').key : 
+        this.saldoTitleArrayNotUpDate.find(val => val.name === 'currentAccount').key
         this.amount = this.sumary.balance
         break;
 
@@ -110,7 +116,7 @@ export class CardComponent implements OnInit {
   public goToDetails() {
     event.preventDefault()
     this.router.navigateByUrl(`/details/${this.consecutive}`)
-    //consecutive
+
   }
 
 }
