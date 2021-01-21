@@ -1,15 +1,31 @@
 <div class="container-card">
 
- <div class="headerCard">
-  <img [src]="'images/visa.svg' | pathImg"  alt="">
-  <a href="http://" class="verDetalle">Ver detalle</a>
- </div>
- <div class="cifres">
-  <span class="type">{{name}}</span>
-  <span class="number">Nro. {{number}}</span>
+  <div class="headerCard">
+    <img [src]="'images/visa.svg' | pathImg" alt="">
+    <a href="http://" class="verDetalle">Ver detalle</a>
+  </div>
+  <div class="cifres">
+    <span class="type">{{name}}</span>
+    <span class="number">Nro. {{number}}</span>
 
-  <span class="saldoTitle">{{this.saldoTitleUse}}</span>
-  <span class="saldoValue">{{this.amount}}</span>
- </div>
+    <span class="saldoTitle">{{this.saldoTitleUse}}</span>
+    <span class="saldoValue">{{this.amount}}</span>
+
+    <div *ngIf="this.typeOfProduct === 'FIXED_TERM_DEPOSIT_CERTIFICATE'">
+      <div class="term">
+        <span class="saldoTitle">{{'home.fixed_term_deposit_certificate.term' | translate}} </span>
+        <span class="saldoValue number">
+          {{this.term}}
+        </span>
+      </div>
+      <div class="due_date">
+        <span class="saldoTitle">{{'home.fixed_term_deposit_certificate.due_date' | translate}} </span>
+        <span class="saldoValue number">
+          {{this.dueDate}}
+        </span>
+      </div>
+
+    </div>
+  </div>
 
 </div>

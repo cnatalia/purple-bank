@@ -17,6 +17,7 @@ export class CardComponent implements OnInit {
   public saldoTitleArrayNotUpDate: { [key: string]: any | any[] } = {};
   public saldoTitleUse;
   public amount;
+  public term;
 
 
   @Input() typeOfProduct: string;
@@ -25,6 +26,7 @@ export class CardComponent implements OnInit {
   @Input() belongsTo: string;
   @Input() status: string;
   @Input() sumary;
+  @Input() dueDate;
 
 
 
@@ -67,7 +69,6 @@ export class CardComponent implements OnInit {
   }
 
   public setSaldoTitle() {
-    console.log(this.sumary)
     switch (this.typeOfProduct) {
       case 'FREE_INVESTMENT_LOAN':
         this.saldoTitleUse = this.status === 'UP_TO_DATE' ? this.saldoTitleArrayUpDate.find(val => val.name === 'freeInvestmentLoan').key : this.saldoTitleArrayNotUpDate.find(val => val.name === 'freeInvestmentLoan').key
@@ -87,6 +88,7 @@ export class CardComponent implements OnInit {
       case 'FIXED_TERM_DEPOSIT_CERTIFICATE':
         this.saldoTitleUse = this.saldoTitleArrayUpDate.find(val => val.name === 'fixedTermDepositCertificate').key
         this.amount = this.sumary.amount
+        this.term = this.sumary.term.count + ' Meses'
         break;
 
     }
