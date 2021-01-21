@@ -3,19 +3,14 @@
   <div class="financialProducts">
     <h1>{{ 'home.title' | translate }}</h1>
     <div class="carrousel">
-      <ngb-carousel interval="90000">
-        <ng-template ngbSlide>
+      <ngb-carousel interval="30000">
+        <ng-template ngbSlide *ngFor="let name of this.productsNames ;let i = index">
           <div class="picsum-img-wrapper">
-            <span class="productName">{{ 'home.slider_current_account' | translate }}</span>
-            <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'} }}</span>
+        
+            <span class="productName">{{ 'home.slider_current_account' | translate:{product: this.productsNameTrasnlated[i].name} }}</span>
+            <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'}  }}</span>
           </div>
 
-        </ng-template>
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper">
-            <span class="productName">{{ 'home.slider_savings_product' | translate }}</span>
-            <span class="value">{{ 'home.value' | translate:{value:'2.351.000,00'} }}</span>
-          </div>
         </ng-template>
       </ngb-carousel>
 
@@ -23,24 +18,40 @@
   </div>
 
   <ul class="wraperNames">
-      El resumen de tus productos es:
-    <li class="nameOfGropup" *ngFor="let name of this.productsNames;let i = index" [ngClass]="{'green' : name ==='FIXED_TERM_DEPOSIT_CERTIFICATE' , 'orange': name ==='FREE_INVESTMENT_LOAN', 'purple': name ==='CREDIT_CARD', 'pink': name ==='CURRENT_ACCOUNT'}" >  {{this.productsNameTrasnlated[i].name}}
-        ({{this.productsNameTrasnlated[i].quantity}})</li>
+    El resumen de tus productos es:
+    <li class="nameOfGropup" *ngFor="let name of this.productsNames;let i = index"
+      [ngClass]="{'green' : name ==='FIXED_TERM_DEPOSIT_CERTIFICATE' , 'orange': name ==='FREE_INVESTMENT_LOAN', 'purple': name ==='CREDIT_CARD', 'pink': name ==='CURRENT_ACCOUNT'}">
+      {{this.productsNameTrasnlated[i].name}}
+      ({{this.productsNameTrasnlated[i].quantity}})</li>
   </ul>
   <div class="group-cards">
 
     <ng-container *ngFor="let name of this.productsNames;let i = index">
 
-        <app-card class="individual-card" *ngFor="let product of this.productsGruped[0][name]"
-          [consecutive]='product.consecutive' [typeOfProduct]='product.name' [number]='product.id'
-          [saldoValue]='"$5.351.000,00"' [belongsTo]='product.issuer' [status]='product.status'
-          [sumary]='product.summary' [dueDate]='product.due_date' [show]='this.sendShow'
-          [titles]='this.productsNameTrasnlated[i].name'>
+      <app-card class="individual-card" *ngFor="let product of this.productsGruped[0][name]"
+        [consecutive]='product.consecutive' [typeOfProduct]='product.name' [number]='product.id'
+        [saldoValue]='"$5.351.000,00"' [belongsTo]='product.issuer' [status]='product.status' [sumary]='product.summary'
+        [dueDate]='product.due_date' [show]='this.sendShow' [titles]='this.productsNameTrasnlated[i].name'>
 
-        </app-card>
+      </app-card>
 
 
     </ng-container>
+
+  </div>
+
+  <div class="recomendations">
+    <p class="texto">
+      <span>¿No encuentras lo que estas buscando?</span>
+      <span>Seguimos trabajando para tener todo lo que necesitas en esta nueva experiencia. Mientras tanto puedes buscar
+        lo que no encuentres en la versión anterior </span>
+      <button>IR A LA VERSIÓN ANTERIOR</button>
+    </p>
+
+    <p class="otherProduct">
+      <span>¿Quieres otro producto?</span>
+      <span>Adquierelo aqui</span>
+    </p>
 
   </div>
 
